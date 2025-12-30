@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый Год 2026!</title>
+    <style>
+        body {
+        margin: 0;
+        background: #0c1e2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        }
+        .snow {
+        position: absolute;
+        top: -20px;
+        color: white;
+        font-size: 1.5em;
+        opacity: 0.8;
+        animation: fall linear infinite;
+        }
+        .snow:nth-child(2n) {
+        font-size: 1.8em;
+        opacity: 0.5;
+        }
+        .snow:nth-child(3n) {
+        font-size: 0.9em;
+        opacity: 0.85;
+        }
+        @keyframes fall {
+            to { 
+                transform: translateY(100vh); 
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(2);
+            }
+        }
+        .greeting {
+        color: #ffeb3b;
+        font-size: 2.5em;
+        text-align: center;
+        z-index: 10;
+        text-shadow: 0 0 10px rgba(255,255,0,0.7);
+        animation: pulse 15s ease-in-out infinite;
+        transform-origin: center;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="greeting">С Новым Годом!<br>2026 🎄</div>
+    <script>
+        for (let i = 0; i < 120; i++) {
+        let snow = document.createElement('div');
+        snow.innerHTML = '❄';
+        snow.className = 'snow';
+        snow.style.left = Math.random() * 100 + 'vw';
+        snow.style.animationDuration = (2 + Math.random() * 3) + 's';
+        snow.style.opacity = Math.random();
+        snow.style.fontSize = (0.5 + Math.random()) + 'em';
+        document.body.appendChild(snow);
+        }
+    </script>
+</body>
+</html>
